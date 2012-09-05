@@ -2,6 +2,7 @@
 #import "KWObjCUtilities.h"
 #import "NSInvocation+KiwiAdditions.h"
 #import "NSMethodSignature+KiwiAdditions.h"
+#import "KWNull.h"
 #import "KWValue.h"
 
 @implementation KWCaptureSpy
@@ -18,21 +19,32 @@
     if (!_argument) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Argument requested has yet to be captured." userInfo:nil];    
     }
-    return [[_argument retain] autorelease];
+
+	if(_argument == [KWNull null]) {
+		return nil;
+	}
+	else {
+		return [[_argument retain] autorelease];
+	}
 }
 
 - (void)object:(id)anObject didReceiveInvocation:(NSInvocation *)anInvocation {
     if (!_argument) {
         NSMethodSignature *signature = [anInvocation methodSignature];
         const char *objCType = [signature messageArgumentTypeAtIndex:_argumentIndex];        
-        if (KWObjCTypeIsObject(objCType)) {
+        if (KWObjCTypeIsObject(objCType) || KWObjCTypeIsClass(objCType)) {
             id argument = nil;
             [anInvocation getMessageArgument:&argument atIndex:_argumentIndex];
             if (KWObjCTypeIsBlock(objCType)) {
                 _argument = [argument copy];
             } else {
-                _argument = [argument retain];
-            }                
+				if(argument == nil) {
+					_argument = [[KWNull null] retain];
+				}
+				else {
+					_argument = [argument retain];
+				}
+            }
         } else {
             NSData *data = [anInvocation messageArgumentDataAtIndex:_argumentIndex];
             _argument = [[KWValue valueWithBytes:[data bytes] objCType:objCType] retain];

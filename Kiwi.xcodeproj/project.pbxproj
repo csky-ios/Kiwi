@@ -443,6 +443,7 @@
 		4B45D6BB1548765800793B1E /* KWCaptureSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWCaptureSpy.h; sourceTree = "<group>"; };
 		4B45D6BC1548765800793B1E /* KWCaptureSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWCaptureSpy.m; sourceTree = "<group>"; };
 		4BA52D0015487F0C00FC957B /* KWCaptureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWCaptureTest.m; sourceTree = "<group>"; };
+		56D371A915F6D95F004AAC25 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiwi.framework; path = "../Debug-iphoneuniversal/Kiwi.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		637FFB28150513D500DBFE8F /* KWBeSubclassOfClassMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBeSubclassOfClassMatcher.h; sourceTree = "<group>"; };
 		637FFB29150513D500DBFE8F /* KWBeSubclassOfClassMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBeSubclassOfClassMatcher.m; sourceTree = "<group>"; };
 		6B39D95B155C9FCB003C3444 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -772,6 +773,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				56D371AF15F6E4EE004AAC25 /* iOSAggregateProduct */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -808,6 +810,14 @@
 				6B39D95D155C9FCB003C3444 /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56D371AF15F6E4EE004AAC25 /* iOSAggregateProduct */ = {
+			isa = PBXGroup;
+			children = (
+				56D371A915F6D95F004AAC25 /* Kiwi.framework */,
+			);
+			name = iOSAggregateProduct;
 			sourceTree = "<group>";
 		};
 		6B39D95D155C9FCB003C3444 /* Other Frameworks */ = {
@@ -966,8 +976,8 @@
 		F57A6868115A3A1D00591C2A /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				F5FC83B611B100B100BF98A3 /* KWAny.m */,
 				F5FC83B611B100B100BF98A7 /* KWAny.h */,
+				F5FC83B611B100B100BF98A3 /* KWAny.m */,
 				F5E9FC2F11AE6A0F0089BACE /* KWBlock.h */,
 				F5E9FC3011AE6A0F0089BACE /* KWBlock.m */,
 				F5015B571158398E002E9A98 /* KWCallSite.h */,
