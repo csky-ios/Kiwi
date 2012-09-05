@@ -49,9 +49,9 @@
 
 - (void)testItShouldMatchInvocationsWithAnyArguments {
     KWMessagePattern *messagePattern = [self messagePatternWithSelector:@selector(addObserver:forKeyPath:options:context:) arguments:@"foo",
-                                                                                                                                     [KWAny any],
-                                                                                                                                     [KWAny any],
-                                                                                                                                     nil];
+										[KWAny any],
+										[KWAny any],
+										nil];
     NSMethodSignature *signature = [NSObject instanceMethodSignatureForSelector:@selector(addObserver:forKeyPath:options:context:)];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
@@ -63,12 +63,74 @@
     STAssertTrue([messagePattern matchesInvocation:invocation], @"expected matching invocation");
 }
 
+- (void)testItShouldMatchInvocationsWithAnyArgumentsWhenCreatedWithMessagePatternFromInvocation {
+    NSMethodSignature *signature = [NSObject instanceMethodSignatureForSelector:@selector(addObserver:forKeyPath:options:context:)];
+    NSInvocation *creationInvocation = [NSInvocation invocationWithMethodSignature:signature];
+    id creationInvocationObserver = @"foo";
+    id creationInvocationKeyPath = [KWAny any];
+    id creationInvocationOptions = [KWAny any];
+    void *creationInvocationContext = nil;
+    [creationInvocation setMessageArguments:&creationInvocationObserver, &creationInvocationKeyPath, &creationInvocationOptions, &creationInvocationContext];
+    [creationInvocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    KWMessagePattern *messagePattern = [KWMessagePattern messagePatternFromInvocation:creationInvocation];
+
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    id observer = @"foo";
+    id keyPath = @"bar";
+    NSKeyValueObservingOptions options = 1;
+    void *context = nil;
+    [invocation setMessageArguments:&observer, &keyPath, &options, &context];
+    STAssertTrue([messagePattern matchesInvocation:invocation], @"expected matching invocation");
+}
+
+
+- (void)testItShouldMatchInvocationsWithAnyArgumentsWhenCreatedWithMessagePatternFromInvocationTwo {
+    NSMethodSignature *signature = [NSObject instanceMethodSignatureForSelector:@selector(addObserver:forKeyPath:options:context:)];
+    NSInvocation *creationInvocation = [NSInvocation invocationWithMethodSignature:signature];
+    id creationInvocationObserver = @"foo";
+    id creationInvocationKeyPath = [KWAny any];
+    NSKeyValueObservingOptions creationInvocationOptions = 1;
+    void *creationInvocationContext = nil;
+    [creationInvocation setMessageArguments:&creationInvocationObserver, &creationInvocationKeyPath, &creationInvocationOptions, &creationInvocationContext];
+    [creationInvocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    KWMessagePattern *messagePattern = [KWMessagePattern messagePatternFromInvocation:creationInvocation];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    id observer = @"foo";
+    id keyPath = @"bar";
+    NSKeyValueObservingOptions options = 1;
+    void *context = nil;
+    [invocation setMessageArguments:&observer, &keyPath, &options, &context];
+    STAssertTrue([messagePattern matchesInvocation:invocation], @"expected non-matching invocation");
+}
+
 - (void)testItShouldNotMatchInvocationsWithAnyArguments {
     KWMessagePattern *messagePattern = [self messagePatternWithSelector:@selector(addObserver:forKeyPath:options:context:) arguments:@"foo",
-                                                                                                                                     [KWAny any],
-                                                                                                                                     [KWValue valueWithUnsignedInt:0],
-                                                                                                                                     nil];
+										[KWAny any],
+										[KWValue valueWithUnsignedInt:0],
+										nil];
     NSMethodSignature *signature = [NSObject instanceMethodSignatureForSelector:@selector(addObserver:forKeyPath:options:context:)];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    id observer = @"foo";
+    id keyPath = @"bar";
+    NSKeyValueObservingOptions options = 1;
+    void *context = nil;
+    [invocation setMessageArguments:&observer, &keyPath, &options, &context];
+    STAssertTrue(![messagePattern matchesInvocation:invocation], @"expected non-matching invocation");
+}
+
+- (void)testItShouldNotMatchInvocationsWithAnyArgumentsWhenCreatedWithMessagePatternFromInvocation {
+    NSMethodSignature *signature = [NSObject instanceMethodSignatureForSelector:@selector(addObserver:forKeyPath:options:context:)];
+    NSInvocation *creationInvocation = [NSInvocation invocationWithMethodSignature:signature];
+    id creationInvocationObserver = @"foo";
+    id creationInvocationKeyPath = [KWAny any];
+    NSKeyValueObservingOptions creationInvocationOptions = 0;
+    void *creationInvocationContext = nil;
+    [creationInvocation setMessageArguments:&creationInvocationObserver, &creationInvocationKeyPath, &creationInvocationOptions, &creationInvocationContext];
+    [creationInvocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
+    KWMessagePattern *messagePattern = [KWMessagePattern messagePatternFromInvocation:creationInvocation];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setSelector:@selector(addObserver:forKeyPath:options:context:)];
     id observer = @"foo";

@@ -73,14 +73,12 @@
             const char *type = [signature messageArgumentTypeAtIndex:i];
             id object = nil;
 
-            if (KWObjCTypeIsObject(type)) {
-                [anInvocation getMessageArgument:&object atIndex:i];
-            } else {
-                NSData *data = [anInvocation messageArgumentDataAtIndex:i];
-                object = [KWValue valueWithBytes:[data bytes] objCType:type];
-            }
+			[anInvocation getMessageArgument:&object atIndex:i];
+			if(object != [KWAny any] && !KWObjCTypeIsObject(type)) {
+				NSData *data = [anInvocation messageArgumentDataAtIndex:i];
+				object = [KWValue valueWithBytes:[data bytes] objCType:type];
+			}
 
-			
 			if (strcmp(type, "@?") == 0) object = [[object copy] autorelease]; // Converting NSStackBlock to NSMallocBlock
             [argumentFilters addObject:(object != nil) ? object : [KWNull null]];
         }
