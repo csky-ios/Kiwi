@@ -6,6 +6,7 @@
 
 #import "KiwiConfiguration.h"
 
+@class KWCaptureSpy;
 @class KWMessagePattern;
 
 @protocol KWMessageSpying;
@@ -34,5 +35,6 @@
 
 - (void)addMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern;
 - (void)removeMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern;
+- (KWCaptureSpy *)captureArgument:(SEL)selector atIndex:(NSUInteger)index;
 
 @end

@@ -70,6 +70,15 @@
     STAssertNil(spy.argument, @"Captured argument should be nil");
 }
 
+- (void)testAddSpyConvenienceMethodOnNSObject {
+	Robot *robot = [[Robot alloc] init];
+	KWCaptureSpy *spy = [robot captureArgument:@selector(speak:) atIndex:0];
+
+	[robot speak:@"Hello"];
+
+	STAssertEqualObjects(spy.argument, @"Hello", @"Captured argument from NSObject convenience method based spy should be equal to 'Hello'");
+}
+
 - (void)testShouldRaiseAnExceptionIfArgumentHasNotBeenCaptured {
     id robotMock = [KWMock nullMockForClass:[Robot class]];
     KWCaptureSpy *spy = [robotMock captureArgument:@selector(speak:afterDelay:whenDone:) atIndex:1];

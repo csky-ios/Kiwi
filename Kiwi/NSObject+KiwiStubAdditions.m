@@ -5,6 +5,7 @@
 //
 
 #import "NSObject+KiwiStubAdditions.h"
+#import "KWCaptureSpy.h"
 #import "KWIntercept.h"
 #import "KWInvocationCapturer.h"
 #import "KWMessagePattern.h"
@@ -128,6 +129,12 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
 
 - (void)removeMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern {
     KWClearObjectSpy(self, aSpy, aMessagePattern);
+}
+
+- (KWCaptureSpy *)captureArgument:(SEL)selector atIndex:(NSUInteger)index {
+    KWCaptureSpy *spy = [[[KWCaptureSpy alloc] initWithArgumentIndex:index] autorelease];
+    [self addMessageSpy:spy forMessagePattern:[KWMessagePattern messagePatternWithSelector:selector]];
+    return  spy;
 }
 
 @end
