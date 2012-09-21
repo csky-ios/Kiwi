@@ -23,9 +23,11 @@
 
 - (id)stub;
 - (id)stubAndReturn:(id)aValue;
+- (void)stub:(SEL)aSelector withBlock:(id (^)(NSArray *))block;
 - (id)stubAndReturn:(id)aValue times:(id)times afterThatReturn:(id)aSecondValue;
 
 - (void)stubMessagePattern:(KWMessagePattern *)aMessagePattern andReturn:(id)aValue;
+- (void)stubMessagePattern:(KWMessagePattern *)aMessagePattern withBlock:(id (^)(NSArray* params))block;
 - (void)stubMessagePattern:(KWMessagePattern *)aMessagePattern andReturn:(id)aValue times:(id)times afterThatReturn:(id)aSecondValue;
 
 - (void)clearStubs;
