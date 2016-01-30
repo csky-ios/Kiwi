@@ -50,4 +50,5 @@
     return contextStack;
 }
 
+@synthesize description=_description;
 @end

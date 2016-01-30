@@ -761,8 +761,8 @@
 		DA084E6C17E3838100592D5A /* KWRegularExpressionPatternMatcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E3C5DB01716C34900835B62 /* KWRegularExpressionPatternMatcher.h */; };
 		DA084E6D17E3838100592D5A /* KWSymbolicator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C533F7D117462CAA000CAB02 /* KWSymbolicator.h */; };
 		DA084E6E17E3838100592D5A /* NSProxy+KiwiVerifierAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F820DB616BB6748003A1BA5 /* NSProxy+KiwiVerifierAdditions.h */; };
-		DA92B2A617E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DA92B2A417E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.h */; };
-		DA92B2A717E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA92B2A517E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.m */; };
+		DA92B2A617E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DA92B2A417E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.h */; };
+		DA92B2A717E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA92B2A517E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.m */; };
 		DAA35A2317E3CF6600C41AE2 /* libKiwi-XCTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA084E7317E3838100592D5A /* libKiwi-XCTest.a */; };
 		DABFFFEC17E3CC3800E79FB4 /* Kiwi-XCTest-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DABFFFEB17E3CC2B00E79FB4 /* Kiwi-XCTest-Prefix.pch */; };
 		F5015CBD1158404E002E9A98 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5015B9F11583A77002E9A98 /* libKiwi.a */; };
@@ -1248,8 +1248,8 @@
 		DA084D5317E381C700592D5A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA084D5A17E3831E00592D5A /* KWXCFunctionalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWXCFunctionalTest.m; sourceTree = "<group>"; };
 		DA084E7317E3838100592D5A /* libKiwi-XCTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libKiwi-XCTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA92B2A417E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestSuite+KiwiAdditions.h"; sourceTree = "<group>"; };
-		DA92B2A517E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestSuite+KiwiAdditions.m"; sourceTree = "<group>"; };
+		DA92B2A417E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestSuite+KiwiAdditions.h"; sourceTree = "<group>"; };
+		DA92B2A517E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+KiwiAdditions.m"; sourceTree = "<group>"; };
 		DABFFFEB17E3CC2B00E79FB4 /* Kiwi-XCTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kiwi-XCTest-Prefix.pch"; sourceTree = "<group>"; };
 		F5015B9F11583A77002E9A98 /* libKiwi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKiwi.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5015C9E11584017002E9A98 /* KiwiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1685,8 +1685,8 @@
 		DA92B2A317E6A3EF0062F84D /* SenTestingKit */ = {
 			isa = PBXGroup;
 			children = (
-				DA92B2A417E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.h */,
-				DA92B2A517E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.m */,
+				DA92B2A417E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.h */,
+				DA92B2A517E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.m */,
 			);
 			path = SenTestingKit;
 			sourceTree = "<group>";
@@ -2037,7 +2037,7 @@
 				9F982D6016A802920030A0B1 /* KWExampleDelegate.h in Headers */,
 				9F982D6216A802920030A0B1 /* KWExampleNode.h in Headers */,
 				9F982D6416A802920030A0B1 /* KWExampleNodeVisitor.h in Headers */,
-				DA92B2A617E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.h in Headers */,
+				DA92B2A617E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.h in Headers */,
 				9F982D6616A802920030A0B1 /* KWExampleSuite.h in Headers */,
 				9F982D6A16A802920030A0B1 /* KWExistVerifier.h in Headers */,
 				9F982D6E16A802920030A0B1 /* KWExpectationType.h in Headers */,
@@ -2195,7 +2195,7 @@
 			name = KiwiTests;
 			productName = KiwiBuildTests;
 			productReference = F5015C9E11584017002E9A98 /* KiwiTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -2203,7 +2203,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Allen Ding";
 				TargetAttributes = {
 					DA084D3D17E3804200592D5A = {
@@ -2266,7 +2266,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -scheme ${PROJECT_NAME} -configuration ${CONFIGURATION} build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -scheme ${PROJECT_NAME} -configuration ${CONFIGURATION} build";
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -scheme ${PROJECT_NAME} -configuration ${CONFIGURATION} build -destination 'platform=iOS Simulator,name=iPad'\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -scheme ${PROJECT_NAME} -configuration ${CONFIGURATION} build";
 			showEnvVarsInLog = 0;
 		};
 		6BC17EC9155E3A84000B3AA4 /* Assemble Framework */ = {
@@ -2521,7 +2521,7 @@
 				9F982D3816A802920030A0B1 /* KWBlockRaiseMatcher.m in Sources */,
 				9F982D3C16A802920030A0B1 /* KWCallSite.m in Sources */,
 				9F982D4016A802920030A0B1 /* KWCaptureSpy.m in Sources */,
-				DA92B2A717E6A3EF0062F84D /* SenTestSuite+KiwiAdditions.m in Sources */,
+				DA92B2A717E6A3EF0062F84D /* XCTestSuite+KiwiAdditions.m in Sources */,
 				9F982D4416A802920030A0B1 /* KWConformToProtocolMatcher.m in Sources */,
 				9F982D4816A802920030A0B1 /* KWContainMatcher.m in Sources */,
 				9F982D4C16A802920030A0B1 /* KWContextNode.m in Sources */,
@@ -2676,7 +2676,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -2700,7 +2699,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -2727,14 +2725,19 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "Supporting Files/Kiwi-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2760,13 +2763,17 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Kiwi-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2788,7 +2795,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2826,7 +2832,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2915,10 +2920,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1.0;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2941,10 +2943,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_MODEL_TUNING = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;

@@ -99,13 +99,7 @@
         @try {
             [self.currentExample runWithDelegate:self];
         } @catch (NSException *exception) {
-            if ([self respondsToSelector:@selector(recordFailureWithDescription:inFile:atLine:expected:)]) {
-                objc_msgSend(self,
-                             @selector(recordFailureWithDescription:inFile:atLine:expected:),
-                             [exception description], @"", 0, NO);
-            } else {
-                objc_msgSend(self, @selector(failWithException:), exception);
-            }
+			[self recordFailureWithDescription:[exception description] inFile:@"" atLine:0 expected:NO];
         }
 
         [[self invocation] kw_setExample:nil];
@@ -121,16 +115,7 @@
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 
 - (void)example:(KWExample *)example didFailWithFailure:(KWFailure *)failure {
-    if ([self respondsToSelector:@selector(recordFailureWithDescription:inFile:atLine:expected:)]) {
-        objc_msgSend(self,
-                     @selector(recordFailureWithDescription:inFile:atLine:expected:),
-                     [[failure exceptionValue] description],
-                     failure.callSite.filename,
-                     failure.callSite.lineNumber,
-                     NO);
-    } else {
-        objc_msgSend(self, @selector(failWithException:), [failure exceptionValue]);
-    }
+	[self recordFailureWithDescription:[[failure exceptionValue] description] inFile:failure.callSite.filename atLine:failure.callSite.lineNumber expected:NO];
 }
 
 #pragma clang diagnostic pop

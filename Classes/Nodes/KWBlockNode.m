@@ -25,4 +25,6 @@
     if (self.block != nil) { self.block(); }
 }
 
+
+@synthesize description=_description;
 @end

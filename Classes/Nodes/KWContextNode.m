@@ -144,4 +144,5 @@
     [aVisitor visitContextNode:self];
 }
 
+@synthesize description=_description;
 @end

@@ -1,20 +1,20 @@
 //
-//  SenTestSuite+KiwiAdditions.m
+//  XCTestSuite+KiwiAdditions.m
 //  Kiwi
 //
 //  Created by Jerry Marino on 5/17/13.
 //  Copyright (c) 2013 Allen Ding. All rights reserved.
 //
 
-#import "SenTestSuite+KiwiAdditions.h"
-#import <SenTestingKit/SenTestProbe.h>
-#import <SenTestingKit/SenTestSuite.h>
+#import "XCTestSuite+KiwiAdditions.h"
+#import <XCTest/XCTestProbe.h>
+#import <XCTest/XCTestSuite.h>
 #import <objc/runtime.h>
 #import "KWExampleSuiteBuilder.h"
 #import "KWCallSite.h"
 #import "KWSpec.h"
 
-@implementation SenTestSuite (KiwiAdditions)
+@implementation XCTestSuite (KiwiAdditions)
 
 + (void)initialize {
     static dispatch_once_t onceToken;
@@ -26,7 +26,7 @@
 // Patch this otherwise SenTestKit will start running all suites in test bundle
 // even if they are empty
 + (void)patchTestSuiteForTestCaseClassIMP {
-    Class c = object_getClass([SenTestSuite class]);
+    Class c = object_getClass([XCTestSuite class]);
     SEL origSEL = @selector(testSuiteForTestCaseClass:);
     SEL newSEL = sel_registerName("__testSuiteForTestCaseClass:");
 
